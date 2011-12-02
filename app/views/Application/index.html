@@ -1,4 +1,24 @@
 #{extends 'main.html' /}
+#{fbg.script /}
 #{set title:'Home' /}
 
-#{welcome /}
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:fb="http://www.facebook.com/2008/fbml">
+
+<script type="text/javascript">
+    function facebookLogin() {
+        // get current login status from facebook.com
+        FB.getLoginStatus(function(response) {
+            if (response.session) {
+                // logged in and connected user, someone you know
+                window.location = "@{Application.facebookLogin()}";
+            } else {
+                window.location = "@{Application.logout()}";
+            }
+        });
+    }
+</script>
+
+<fb:login-button perms="email,user_birthday,read_stream,publish_stream,friends_photos" onlogin="facebookLogin();"></fb:login-button>
+<a href="#" onclick="FB.logout();">Logout</a>
+
+</html>
