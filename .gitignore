@@ -2,3 +2,7 @@
 .project
 .settings/
 eclipse/
+conf/Application.conf
+.DS_Store
+logs/
+server.pid
