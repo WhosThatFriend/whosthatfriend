@@ -11,8 +11,6 @@ import java.util.*;
 
 import com.google.gson.JsonObject;
 
-import models.*;
-
 public class Application extends Controller {
 
     public static void index() {
