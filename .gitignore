@@ -6,3 +6,5 @@ conf/Application.conf
 .DS_Store
 logs/
 server.pid
+tmp/
+modules/
