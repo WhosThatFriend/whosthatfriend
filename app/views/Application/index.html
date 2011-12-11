@@ -18,14 +18,14 @@
     }
 </script>
 
-<fb:login-button perms="email,user_birthday,read_stream,publish_stream,friends_photos,read_friendlists" onlogin="facebookLogin();"></fb:login-button>
-
+<fb:login-button perms="email,friends_photos,read_friendlists" onlogin="facebookLogin();"></fb:login-button>
+<div id="main_div" align="center">
 <br/>
 #{if photoz}
 #{list items:photoz, as:'photo'}
-
-
-<img  height="400" width="400" src="${photo}" />
+	<div id="image_frame" style="z-index:100;">
+		<img style=opacity:0.0;" id="fb_image" src="${photo}"></img>
+	</div>
 
 #{/list}
 #{/if}
@@ -34,16 +34,10 @@
 <br/>
 #{if friendz}
 #{list items:friendz, as:'friend'}
-<a href="#" onClick="window.location.reload()">
-<img src="${friend.profilePicUrl}"/> ${friend.name}
-</a>
+	<a href="#" onClick="window.location.reload()">
+		<img src="${friend.profilePicUrl}"/> ${friend.name}
+	</a>
 #{/list}
 #{/if}
-<br/>
-#{if friends}
-#{list items:friends, as:'friend'}
-${friend}<br/>
-#{/list}
-#{/if}
-<br/>
+</div>
 </html>
